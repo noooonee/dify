@@ -5,6 +5,12 @@
 # ==================================================================
 
 x-shared-env: &shared-api-worker-env
+
+  # Configure proxy but bypass docker internal network
+  # HTTP_PROXY: "http://192.168.1.1:8080"
+  # HTTPS_PROXY: "http://192.168.1.1:8080"
+  # NO_PROXY: "192.168.1.1,192.168.1.2,web,db,redis,worker,api,sandbox,plugin_daemon,ssrf_proxy,certbot,nginx,weaviate,qdrant,couchbase-server,pgvector,pgvecto-rs,chroma,oceanbase,oracle,etcd,minio,milvus-standalone,opensearch,opensearch-dashboards,opengauss,myscale,elasticsearch,kibana,unstructured"
+
   CONSOLE_API_URL: ${CONSOLE_API_URL:-}
   CONSOLE_WEB_URL: ${CONSOLE_WEB_URL:-}
   SERVICE_API_URL: ${SERVICE_API_URL:-}
